@@ -1,0 +1,2 @@
+#!/bin/sh
+jl --array 'filter(\o -> all (\x -> x > 0) o.seq)' | jl --lines 'id'

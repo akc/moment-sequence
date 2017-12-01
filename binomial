@@ -1,0 +1,2 @@
+#!/bin/sh
+hops 'laplace(laplacei(A061552)*laplacei(stdin))'

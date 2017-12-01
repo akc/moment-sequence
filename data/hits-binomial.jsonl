@@ -1,0 +1,6 @@
+{"hops":"f=A027673;laplace(laplacei(A061552)*laplacei(f))","seq":[1,2,6,21,97]}
+{"hops":"f=A039749;laplace(laplacei(A061552)*laplacei(f))","seq":[1,2,7,30,151]}
+{"hops":"f=A105510;laplace(laplacei(A061552)*laplacei(f))","seq":[1,1,4,16,80]}
+{"hops":"f=A119602;laplace(laplacei(A061552)*laplacei(f))","seq":[1,2,6,25,138]}
+{"hops":"f=A140837;laplace(laplacei(A061552)*laplacei(f))","seq":[1,2,6,24,118]}
+{"hops":"f=A211179;laplace(laplacei(A061552)*laplacei(f))","seq":[1,2,9,58,469]}

@@ -1,2 +1,2 @@
 #!/bin/sh
-jl --array 'filter(\o -> all (\x -> x > 0) o.seq)' | jl --lines 'id'
+jl '\o -> if all (\x -> x > 0) o.seq then o else "DELETE"' | grep -v "^\"DELETE\""

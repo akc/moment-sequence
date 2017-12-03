@@ -7,6 +7,9 @@ twine :: [a] -> [a] -> [a]
 twine [] ys = ys
 twine (x:xs) ys = x : twine ys xs
 
+hankel :: Fractional a => Vector a -> Vector a
+hankel = V.scanl (*) 1 . V.scanl1 (*) . snd . jacobi
+
 -- J-fraction
 jacobi :: Fractional a => Vector a -> (Vector a, Vector a)
 jacobi cs =

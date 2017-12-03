@@ -3,12 +3,26 @@ import Data.Ratio
 import Data.Vector (Vector, (!))
 import qualified Data.Vector as V
 
--- Stieltjes
-
 twine :: [a] -> [a] -> [a]
 twine [] ys = ys
 twine (x:xs) ys = x : twine ys xs
 
+-- J-fraction
+jacobi :: Fractional a => Vector a -> (Vector a, Vector a)
+jacobi cs =
+    if V.null cs then
+        (V.empty, V.empty)
+    else
+        (u, V.cons (cs ! 0) v)
+  where
+    ds = V.drop 1 $ stieltjes cs
+    n = V.length ds `div` 2
+    f (-1) = 0
+    f i = ds ! i
+    u = V.fromList $ (\k -> f (2*k-1) + f (2*k)) <$> [0 .. n]
+    v = V.fromList $ (\k -> f (2*k) * f (2*k+1)) <$> [0 .. n - 1]
+
+-- S-fraction
 stieltjes :: Fractional a => Vector a -> Vector a
 stieltjes cs =
     if V.null cs then
@@ -16,7 +30,7 @@ stieltjes cs =
     else
         V.fromList (cs ! 0 : twine qs es)
   where
-    n = length cs `div` 2
+    n = V.length cs `div` 2
     qs = map (q 0) [ 1 .. n ]
     es = map (e 0) [ 1 .. n - 1 ]
 

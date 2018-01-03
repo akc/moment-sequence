@@ -1,0 +1,1 @@
+ ./doit.fish | hops 'oneof(-3,-2,-1,1,2,3)*A061552 + oneof(-3,-2,-1,1,2,3)*stdin' | sloane --filter | tee hits.jsonl
